@@ -94,6 +94,39 @@ I first we filtered for Data Analysts that are in the US.Created a job posted mo
 This query highlights the most popular job skills for a Data Analyst in the United States aggregated on monthly basis.
 
 View my notebook with detailed steps here:
-[]
+[skills_trend.ipynb](Python_project\skills_trend.ipynb)
+
+
+### Visualize Data
+
+```python
+
+sns.lineplot(data=df_plot,dashes=False,palette='tab10')
+sns.set_theme(style='ticks')
+sns.despine()
+plt.title('Trending Top Skills for Data Analysts in the US')
+plt.xlabel('2023')
+plt.ylabel('Likelihood in Job Posting')
+plt.legend().remove()
+
+from matplotlib.ticker import PercentFormatter
+ax =plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+for i in range(5):
+    plt.text(11.3,df_plot.iloc[-1,i],df_plot.columns[i])
+```
+
+### Results
+
+![Visualize Trending Top Skills for Data Analysts in the United States](Python_project\top_skills_da.png)
+
+### Insights
+- SQL remains the most demanded skill throughout the year followed by Excel for Data Analysts in the US.
+
+
+
+
+
 
 
